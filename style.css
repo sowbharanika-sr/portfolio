@@ -12,13 +12,14 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
+  padding: 20px 0;
 }
+
 
 /* CARD */
 .profile-card {
-  height: 90%;
-  width: 360px;
+   width: 420px;
   border-radius: 35px;
   overflow: hidden;
   background: #ffffff;
@@ -36,7 +37,7 @@ body {
 
 /* HEADER */
 .card-header {
-  height: 120px;
+  height: 100px;
   background: #2f3645;
   position: relative;
   display: flex;
@@ -50,21 +51,37 @@ body {
 .profile-img {
   width: 140px;
   height: 170px;
-  border-radius: 50%;
+  border-radius: 60%;
   object-fit: cover;
   border: 6px solid #ffffff;
   position: absolute;
-  bottom: -60px;
+  bottom: -75px;
 
   /* animation */
   animation: zoomIn 1s ease forwards;
 }
+.profile-label {
+  cursor: pointer;
+}
+.profile-label::after {
+  content: "Tap to view QR";
+  position: absolute;
+  bottom: -18px;
+  font-size: 11px;
+  color: #e5e7eb;
+}
+#qr-toggle:checked + .profile-card .qr-overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
 
 /* BODY */
 .card-body {
+  min-height:520px;
   background: #bb9734;
-  padding: 90px 25px 30px;
+  padding: 80px 25px 10px;
   text-align: center;
+  
 }
 
 .name {
@@ -135,10 +152,10 @@ body {
 
 }
 .marksheets{
-    display:flex;
+    
     flex-wrap: wrap;
     justify-content: center;
-    gap:10px;
+    gap:8px;
     white-space: nowrap;
 }
 .img{
@@ -146,11 +163,10 @@ body {
  
   color: #111399;
   text-decoration: none;
-  padding: 12px;
   border-radius: 30px;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 3px;
 
   font-size: 14px;
   transition: transform 0.3s ease;
@@ -161,13 +177,16 @@ body {
 }
 /* FOOTER */
 .card-footer {
+  height: 220px;
   background: #ffffff;
+  perspective: 1000px;
   padding: 25px;
   display: flex;
   flex-direction: column;
   gap: 14px;
   align-items: center;
 }
+
 
 /* BUTTON */
 .btn {
@@ -197,24 +216,21 @@ body {
   background: #1e2430;
   transform: translateY(-3px);
 }
-
-/* QR */
-.qr-box {
-  width: 80px;
-  height: 80px;
-  border: 2px dashed #cbd5e1;
-  object-fit: contain;
-  border-radius: 12px;
+.qr-overlay {
+  position: absolute;
+  inset: 0;
+  background: #ffffff;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
-  color: #64748b;
-  transition: transform 0.3s ease;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
 }
-
-.qr-box:hover {
-  transform: scale(1.1);
+#qr-toggle:checked ~ .profile-card .qr-overlay {
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ANIMATIONS */
