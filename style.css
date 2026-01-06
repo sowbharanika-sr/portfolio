@@ -177,10 +177,10 @@ body {
 }
 /* FOOTER */
 .card-footer {
-  height: 220px;
+  min-height: 220px;
   background: #ffffff;
   perspective: 1000px;
-  padding: 25px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -216,21 +216,24 @@ body {
   background: #1e2430;
   transform: translateY(-3px);
 }
-.qr-overlay {
-  position: absolute;
-  inset: 0;
-  background: #ffffff;
-  display: flex;
-  flex-direction: column;
+.qr-box {
+  
+  width: 60px;
+  height: 50px;
+  border: 2px dashed #cbd5e1;
+  object-fit: contain;
+  border-radius: 14px;
+  top: 2px;
+ display: flex;
   align-items: center;
   justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.4s ease;
+  font-size: 11px;
+  color: #64748b;
+  transition: transform 0.3s ease;
 }
-#qr-toggle:checked ~ .profile-card .qr-overlay {
-  opacity: 1;
-  pointer-events: auto;
+
+.qr-box:hover {
+  transform: scale(1.1);
 }
 
 /* ANIMATIONS */
