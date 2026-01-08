@@ -135,6 +135,7 @@ body {
   transform: scale(1.1);
   background: #ffffff;
 }
+
 .projects{
    display: flex;
   flex-wrap: wrap;
@@ -153,14 +154,37 @@ body {
 }
 .marksheets{
     
-    flex-wrap: wrap;
-    justify-content: center;
-    gap:8px;
-   
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  /*white-space: nowrap;*/
+  padding: 8px;   
+}
+.marksheets a{
+  display: inline-block;
+     
+  text-align: center;
+  background: rgba(255, 255, 255, 0.852);
+  text-decoration: none;
+  color:rgb(0, 0, 58);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  transition: transform 0.3s ease, background 0.3s ease;
+
+}
+.marksheets a.nowrap {
+  white-space: nowrap;
+}
+
+.marksheets a:hover{
+transform: scale(1.1);
+  background: #f5b855ce;
 }
 .img{
   width: 35%;
- 
+  
   color: #111399;
   text-decoration: none;
   border-radius: 30px;
@@ -175,10 +199,80 @@ body {
   color: #2a013f;
   transform: translateY(-3px);
 }
+/* Projects container */
+.projects {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+/* Individual project card */
+.project-card {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 14px 18px;
+  border-radius: 12px;
+  text-align: center;
+  min-width: 160px;
+}
+
+/* Project title */
+.project-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #000;
+}
+
+/* Links container */
+.project-links {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+.skills-project{
+   font-size: 15px;
+  margin-bottom: 10px;
+  padding-top: 7px;
+}
+/* Common button styles */
+.project-btn {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+/* Code button */
+.project-btn.code {
+  background:  #765b04e3;
+  color:#ffffff;
+  border: 1px solid #002063;
+}
+
+.project-btn.code:hover {
+  background: #002063;
+  color: #ffffff;
+}
+
+/* Live demo button */
+.project-btn.live {
+  background: #7b6006;
+  color: #ffffff;
+  border: 1px solid #002063;
+}
+
+.project-btn.live:hover {
+  background: #1e2430;
+}
+
 /* FOOTER */
 .card-footer {
-  min-height: 220px;
-  background: #ffffff;
+background: #ffffff;
   perspective: 1000px;
   padding: 20px;
   display: flex;
@@ -186,22 +280,29 @@ body {
   gap: 14px;
   align-items: center;
 }
+.footer-buttons {
+  max-width: 280px;
+  display: flex;         
+  gap: 14px;
+  justify-content: center;
+  flex-wrap: wrap;        
+}
 
 
 /* BUTTON */
 .btn {
-  width: 100%;
+  flex:1 1 0;
   background: #002063;
   color: #ffffff;
   text-decoration: none;
-  padding: 12px;
+  padding: 12px 0px;
   border-radius: 30px;
-
-  display: flex;
+  width:130px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-
+  white-space: nowrap;
   font-size: 14px;
   transition: transform 0.3s ease, background 0.3s ease;
 }
@@ -218,8 +319,8 @@ body {
 }
 .qr-box {
   
-  width: 60px;
-  height: 50px;
+  width: 80px;
+  height: 80px;
   border: 2px dashed #cbd5e1;
   object-fit: contain;
   border-radius: 14px;
@@ -274,4 +375,8 @@ body {
   .profile-card {
     width: 480px;
   }
+}
+.marksheets a {
+  min-width: max-content;
+  white-space: nowrap;
 }
